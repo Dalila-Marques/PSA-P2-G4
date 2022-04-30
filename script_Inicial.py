@@ -36,8 +36,14 @@ def main():
         camera_bp.set_attribute('image_size_y','600') 
         camera_transform = carla.Transform(carla.Location(x=1.5, z=2))
         camera = world.spawn_actor(camera_bp,camera_transform, attach_to=vehicle)
+
+        #TODO: Camera.listen function
         #camera.listen( Lambda image:save_to_disk('output/%d064.png'%image.frame))
         time.sleep(20)
+    
+    finally:
+        print('Delete actorList')
+        #client.apply_batch([carla.command.DestroyActor(x) for x in actorList])    
     
     finally:
         print('Delete actorList')
